@@ -2,114 +2,323 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Project Details</title>
-    <link rel="shortcut icon" href="img/testimonial/android-chrome-512x512.png">
-    <!-- font awesome -->
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
-    <!-- main css -->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/responsive.css">
-    <!-- default color css  -->
-    <link rel="stylesheet" href="css/skins/color-1.css" disabled>
-    <link rel="stylesheet" href="css/style-switcher.css">
-    <!-- theme colors -->
-    <link rel="stylesheet" class="alternate-style" title="color-1" href="/css/skins/color-1.css" disabled>
-    <link rel="stylesheet" class="alternate-style" title="color-2" href="/css/skins/color-2.css" disabled>
-    <link rel="stylesheet" class="alternate-style" title="color-3" href="/css/skins/color-3.css" disabled>
-    <link rel="stylesheet" class="alternate-style" title="color-4" href="/css/skins/color-4.css">
-    <link rel="stylesheet" class="alternate-style" title="color-5" href="/css/skins/color-5.css" disabled>
-    
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Projects</title>
+  <!-- font awesome -->
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+  <!-- main css -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/responsive.css">
+  <!-- default color css  -->
+  <link rel="stylesheet" href="css/skins/color-1.css" disabled>
+  <link rel="stylesheet" href="css/style-switcher.css">
+  <!-- theme colors -->
+  <link rel="stylesheet" class="alternate-style" title="color-1" href="/css/skins/color-1.css" disabled>
+  <link rel="stylesheet" class="alternate-style" title="color-2" href="/css/skins/color-2.css" disabled>
+  <link rel="stylesheet" class="alternate-style" title="color-3" href="/css/skins/color-3.css" disabled>
+  <link rel="stylesheet" class="alternate-style" title="color-4" href="/css/skins/color-4.css">
+  <link rel="stylesheet" class="alternate-style" title="color-5" href="/css/skins/color-5.css" disabled>
+  <!-- fav icon  -->
+  <link rel="shortcut icon" href="img/testimonial/android-chrome-512x512.png">
+
+  <link rel="stylesheet" href="/css/captcha.css">
+
+  <script src="/js/cpatcha.js"></script>
+
+
 </head>
 
-<body class="dark">
-  <section class="portfolio section" id="portfolio">
-    <h2 class="section__title">Projects</h2>
-    <span class="section__subtitle">Most recent work</span>
+<body class="dark" onload="generateCaptcha();">
+  <br>
 
-    <div class="portfolio__container container swiper-container">
-      <div class="swiper-wrapper">
-        <!-- ------------------------portfollio 1-------------------- -->
-        <div class="portfolio__content grid swiper-slide"><br>
-          <img src="/img/Projects/Django_calci.png" class="portfolio__img" />
+  <!-- ========== Start pre loader ========== -->
 
-          <div class="portfolio__data">
-            <h3 class="portfolio__title">
-             Calculator using Python-Django
-            </h3>
-            <p class="portfolio__description">
-              This is just a basic python framework project, 
-              created using Python Programming language, Html and Css. 
-              this project is used to perform calculation.<br>
-            </p>
-            <a
-              href="https://drive.google.com/drive/folders/1CxZ0jh2UkYpn_9Jw1dFcLaPlsPNsOp25?usp=drive_link"
-              class="button button--flex button--small portfolio__button"
-            >
-              Google-drive
-              <i class="uil uil-external-link-alt button__icon"></i>
-            </a>
+  <!-- ========== End pre loader ========== -->
+
+
+
+  <!-- start header  -->
+  <div class="header">
+    <div class="container">
+      <div class="row justify-content-between">
+
+        <div class="hamburger-btn outer-shadow hover-in-shadow">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end  -->
+
+
+  <!-- navigation menu start  -->
+  <nav class="nav-menu">
+    <div class="close-nav-menu outer-shadow hover-in-shadow">&times;</div>
+    <div class="nav-menu-inner">
+      <ul>
+        <li><a href="index.html" class="link-item inner-shadow active">Home</a></li>
+      </ul>
+    </div>
+    <div class="fade-out-effect">
+    </div>
+  </nav>
+  <!-- end  -->
+
+
+
+  <!-- about section  -->
+  <section class="about-section section" id="about">
+    <h1 class="section__title" style="font-size:40px">My Recent <span style="color:#2eb1ed; font-size:40px">Works</span>
+    </h1>
+
+    <div class="container">
+
+      <!-- about section start -->
+      <div class="row">
+        <div class="about-tabs">
+
+          <span class="tab-item outer-shadow active" data-target=".education" style="font-size:25px">Projects</span>
+        </div>
+      </div>
+
+
+
+      <!-- education start -->
+      <div class="row">
+        <div class="education tab-content active">
+          <div class="row">
+            <div class="timeline">
+              <div class="row">
+                <!-- time line items  -->
+
+                <div class="timeline-item">
+                  <div class="timeline-item-inner outer-shadow">
+                    <i class="fas fa-graduation-cap icon"></i>
+                    <span>September 2024</span>
+                    <img src="/img/Projects/spotify-clone.png" class="portfolio__img" /><br><br>
+                    <h3>Spotify-clone</h3>
+                    <p> This is just a basic Html css javascript project, created using Html css javascript Programming
+                      language. this project generates a playlist of ten songs.</p>
+                    <br>
+                    <a href=" https://github.com/ArjunGPrabhu/Spotify-clone" 
+                      class="link-item btn-1 outer-shadow hover-in-shadow" style="color:#2eb1ed"><i class="fab fa-github "></i> Github</a>
+
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="timeline-item-inner outer-shadow">
+                    <i class="fas fa-graduation-cap icon"></i>
+                    <span>September 2024</span>
+                    <img src="/img/Projects/Youtube video downloader.png" class="portfolio__img" /><br><br>
+                    <h3>Download Youtube Video</h3>
+                    <p>This is just a basic Python project, created using Python Programming language. This project is
+                      used to Download Youtube videos.</p>
+                    <br>
+                    <a href="https://github.com/ArjunGPrabhu/Download-YouTube-Video"
+                      class="link-item btn-1 outer-shadow hover-in-shadow" style="color:#2eb1ed"><i class="fab fa-github"></i> Github</a>
+
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="timeline-item-inner outer-shadow">
+                    <i class="fas fa-graduation-cap icon"></i>
+                    <span>September 2024</span>
+                    <img src="/img/Projects/timer counter.png" class="portfolio__img" /><br><br>
+                    <h3>Time Counter</h3>
+                    <p> This is just a basic Python project, created using Python Programming language. This project
+                      Calculates the time that you set.</p>
+                    <br>
+                    <a href="https://github.com/ArjunGPrabhu/Time-Counter"
+                      class="link-item btn-1 outer-shadow hover-in-shadow" style="color:#2eb1ed"><i class="fab fa-github"></i> Github</a>
+
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="timeline-item-inner outer-shadow">
+                    <i class="fas fa-graduation-cap icon"></i>
+                    <span>September 2024</span>
+                    <img src="/img/Projects/Password generator.png" class="portfolio__img" /><br><br>
+                    <h3>Password Generator</h3>
+                    <p> This is just a basic Python project, created using Python Programming language. This project
+                      helps in generating Passwords.</p>
+                    <br>
+                    <a href="https://github.com/ArjunGPrabhu/Password-Generator"
+                      class="link-item btn-1 outer-shadow hover-in-shadow" style="color:#2eb1ed"><i class="fab fa-github"></i> Github</a>
+
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="timeline-item-inner outer-shadow">
+                    <i class="fas fa-graduation-cap icon"></i>
+                    <span>August 2024</span>
+                    <img src="/img/Projects/Calculator Gui Tkinter.png" class="portfolio__img" /><br><br>
+                    <h3>Calculator GUI Tkinter</h3>
+                    <p> This is just a basic Python project, created using Python Programming language. this project is
+                      used to perform calculation.</p>
+                    <br>
+                    <a href="https://github.com/ArjunGPrabhu/Calculator_GUI_Tkinter"
+                      class="link-item btn-1 outer-shadow hover-in-shadow" style="color:#2eb1ed"><i class="fab fa-github"></i> Github</a>
+
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="timeline-item-inner outer-shadow">
+                    <i class="fas fa-graduation-cap icon"></i>
+                    <span>June 2024</span>
+                    <img src="/img/Projects/Portfolio.png" class="portfolio__img" /><br><br>
+                    <h3>Portfolio</h3>
+                    <p> This is just a basic Html css javascript project, created using Html css javascript Programming
+                      language. this project gives information about me.</p>
+                    <br>
+                    <a href="https://github.com/ArjunGPrabhu/arjungprabhu_portfolio"
+                      class="link-item btn-1 outer-shadow hover-in-shadow" style="color:#2eb1ed"><i class="fab fa-github"></i> Github</a>
+
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="timeline-item-inner outer-shadow">
+                    <i class="fas fa-graduation-cap icon"></i>
+                    <span>October 2023</span>
+                    <img src="/img/Projects/Car simulator.png" class="portfolio__img" /><br><br>
+                    <h3>Car Simulator</h3>
+                    <p> This is just a basic Python project, created using Python Programming language. this is a car
+                      simulation game..</p>
+                    <br>
+                    <a href="https://github.com/ArjunGPrabhu/Car-Simulator"
+                      class="link-item btn-1 outer-shadow hover-in-shadow" style="color:#2eb1ed"><i class="fab fa-github"></i> Github</a>
+
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="timeline-item-inner outer-shadow">
+                    <i class="fas fa-graduation-cap icon"></i>
+                    <span>March 2023</span>
+                    <img src="/img/Projects/Ebill.png" class="portfolio__img" /><br><br>
+                    <h3>E-bill</h3>
+                    <p> This is just a basic python framework project,
+                      created using Python Programming language, Html and Css.
+                      This project is used to make lists.</p>
+                    <br>
+                    <a href="https://drive.google.com/drive/folders/1CxZ0jh2UkYpn_9Jw1dFcLaPlsPNsOp25?usp=drive_link"
+                      class="link-item btn-1 outer-shadow hover-in-shadow" style="color:#2eb1ed"><i class="fab fa-github"></i> Github</a>
+
+                  </div>
+                </div>
+
+                <div class="timeline-item">
+                  <div class="timeline-item-inner outer-shadow">
+                    <i class="fas fa-graduation-cap icon"></i>
+                    <span>December 2023</span>
+                    <img src="/img/Projects/Django-To-do-list.png" class="portfolio__img" /><br><br>
+                    <h3>To-Do List using Django</h3>
+                    <p> This is just a basic python framework project,
+                      created using Python Programming language, Html and Css.
+                      This project is used to make lists.</p>
+                    <br>
+                    <a href="https://drive.google.com/drive/folders/1CxZ0jh2UkYpn_9Jw1dFcLaPlsPNsOp25?usp=drive_link"
+                      class="link-item btn-1 outer-shadow hover-in-shadow" style="color:#2eb1ed"><i class="fab fa-google-drive"></i> Google Drive</a>
+
+                  </div>
+                </div>
+
+
+
+                <div class="timeline-item">
+                  <div class="timeline-item-inner outer-shadow">
+                    <i class="fas fa-graduation-cap icon"></i>
+                    <span>December 2023</span>
+                    <img src="/img/Projects/Django_calci.png" class="portfolio__img" /><br><br>
+                    <h3>Calculator using Django</h3>
+                    <p>This is just a basic python framework project,
+                      created using Python Programming language, Html and Css.
+                      this project is used to perform calculation.</p>
+                    <br>
+                    <a href="https://drive.google.com/drive/folders/1CxZ0jh2UkYpn_9Jw1dFcLaPlsPNsOp25?usp=drive_link"
+                      class="link-item btn-1 outer-shadow hover-in-shadow" style="color:#2eb1ed"><i class="fab fa-google-drive"></i> Google Drive</a>
+
+                  </div>
+                </div>
+                <!-- end  -->
+              </div>
+            </div>
           </div>
         </div>
-        <!-- ------------------------portfollio 2-------------------- -->
-        <br>
-        <div class="portfolio__content grid swiper-slide"><br>
-          <img src="/img/Projects/Django-To-do-list.png" class="portfolio__img" />
+      </div>
+      <!-- education end -->
 
-          <div class="portfolio__data">
-            <h3 class="portfolio__title">
-             To-Do List using Python-Django
-            </h3>
-            <p class="portfolio__description">
-            This is just a basic python framework project,
-            created using Python Programming language, Html and Css. 
-            This project is used to make lists.
-            </p>
-            <a
-              href="https://drive.google.com/drive/folders/12fvZU5kGfZpSxNkBqV_MFVNUi7gosIJR?usp=drive_link"
-              class="button button--flex button--small portfolio__button"
-            >
-            Google-drive
-              <i class="uil uil-external-link-alt button__icon"></i>
-            </a>
-          </div>
-        </div>
+    </div>
+  </section>
+  <!-- end  -->
 
-        <div class="style-switcher outer-shadow style-switcher-toggler s-icon outer-shadow hover-in-shadow">
-        <div class="day-night s-icon outer-shadow hover-in-shadow">
-          <i class="fas fa-moon"></i>
-        </div>
-        </div>
-  
-        
-<!-- ========== End style switciher start - for demo pirposs only ========== -->
-    <!-- main js -->
-    <script src="js/main.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.4/typed.min.js'></script>
-    <!-- style switcher js -->
-    <script src="js/style-switcher.js"></script>
-    <script src="js/animation.js"></script>
-    <script src="js/glassmorphism-animation.js"></script>
-    <script src="js/autoTypingAnimation.js"></script>
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
-    <script>
-      VanillaTilt.init(document.querySelectorAll(".contact-card"), {
-        max: 25,
-        speed: 400
-      });
 
-      VanillaTilt.init(document.querySelectorAll(".link-card"), {
-        max: 25,
-        speed: 400
-      });
+  <!-- ========== End contact section ========== -->
 
-      VanillaTilt.init(document.querySelectorAll(".card")),{
-        max: 25,
-        speed: 300
-      };
+  <!-- ========== Start portfolio popup ========== -->
+
+
+  <!-- ========== End portfolio popup ========== -->
+
+  <!-- ========== Start style switciher start - for demo pirposs only ========== -->
+  <div class="style-switcher outer-shadow">
+    <div class="style-switcher-toggler s-icon outer-shadow hover-in-shadow">
+      <i class="fas fa-cog fa-spin"></i>
+    </div>
+    <div class="day-night s-icon outer-shadow hover-in-shadow">
+      <i class="fas fa-moon"></i>
+    </div>
+
+    <h4>Theme Color</h4>
+    <div class="colors">
+      <span class="color-1" data-tilt data-tilt-scale="1.1" onclick="setActiveStyle('color-1')"></span>
+      <span class="color-2" data-tilt data-tilt-scale="1.1" onclick="setActiveStyle('color-2')"></span>
+      <span class="color-3" data-tilt data-tilt-scale="1.1" onclick="setActiveStyle('color-3')"></span>
+      <span class="color-4" data-tilt data-tilt-scale="1.1" onclick="setActiveStyle('color-4')"></span>
+      <span class="color-5" data-tilt data-tilt-scale="1.1" onclick="setActiveStyle('color-5')"></span>
+    </div>
+  </div>
+
+
+  <footer class="a1">
+    <br>
+    <h4 class="copyright-text">Copyright &copy; 2024 Arjun G Prabhu - All Rights Reserved</h4>
+    <br>
+  </footer>
+
+  <!-- ========== End style switciher start - for demo pirposs only ========== -->
+  <!-- main js -->
+  <script src="js/main.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.4/typed.min.js'></script>
+  <!-- style switcher js -->
+  <script src="js/style-switcher.js"></script>
+  <script src="js/animation.js"></script>
+  <script src="js/glassmorphism-animation.js"></script>
+  <script src="js/autoTypingAnimation.js"></script>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script>
+    VanillaTilt.init(document.querySelectorAll(".contact-card"), {
+      max: 25,
+      speed: 400
+    });
+
+    VanillaTilt.init(document.querySelectorAll(".link-card"), {
+      max: 25,
+      speed: 400
+    });
+
+    VanillaTilt.init(document.querySelectorAll(".card")), {
+      max: 25,
+      speed: 300
+    };
   </script>
-
 </body>
+
 </html>

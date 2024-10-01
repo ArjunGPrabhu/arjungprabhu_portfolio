@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Device-Info</title>
+  <!-- font awesome -->
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+  <!-- main css -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/responsive.css">
+  <!-- default color css  -->
+  <link rel="stylesheet" href="css/skins/color-1.css" disabled>
+  <link rel="stylesheet" href="css/style-switcher.css">
+  <!-- theme colors -->
+  <link rel="stylesheet" class="alternate-style" title="color-1" href="/css/skins/color-1.css" disabled>
+  <link rel="stylesheet" class="alternate-style" title="color-2" href="/css/skins/color-2.css" disabled>
+  <link rel="stylesheet" class="alternate-style" title="color-3" href="/css/skins/color-3.css" disabled>
+  <link rel="stylesheet" class="alternate-style" title="color-4" href="/css/skins/color-4.css">
+  <link rel="stylesheet" class="alternate-style" title="color-5" href="/css/skins/color-5.css" disabled>
+  <!-- fav icon  -->
+  <link rel="shortcut icon" href="img/testimonial/android-chrome-512x512.png">
+
+  <link rel="stylesheet" href="/css/captcha.css">
+
+  <script src="/js/cpatcha.js"></script>
+
+
+</head>
+
+<body class="dark" onload="generateCaptcha();">
+  <br>
+
+  <!-- ========== Start pre loader ========== -->
+
+  <!-- ========== End pre loader ========== -->
+
+
+
+  <!-- start header  -->
+  <div class="header">
+    <div class="container">
+      <div class="row justify-content-between">
+
+        <div class="hamburger-btn outer-shadow hover-in-shadow">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end  -->
+
+
+  <!-- navigation menu start  -->
+  <nav class="nav-menu">
+    <div class="close-nav-menu outer-shadow hover-in-shadow">&times;</div>
+    <div class="nav-menu-inner">
+      <ul>
+        <li><a href="index.html" class="link-item inner-shadow active">Home</a></li>
+      </ul>
+    </div>
+    <div class="fade-out-effect">
+    </div>
+  </nav>
+  <!-- end  -->
+
+
+
+  <!-- about section  -->
+  <section class="about-section section" id="about">
+    <h1 class="section__title" style="font-size:40px">Device <span style="color:#2eb1ed; font-size:40px">Info.</span>
+    </h1>
+
+    <div class="container">
+
+      <!-- about section start -->
+    
+      <style>
+        h2 {
+            color: #2eb1ed;
+        
+        }
+    
+        .battery__percentage {
+            color: #2eb1ed;
+            font-size: 20px;
+        }
+    
+        .battery__liquid {
+            color: #2eb1ed;
+            font-size: 20px;
+        }
+    
+        .loader {
+            color: #666666;
+            font-size: 20px;
+        }
+        
+       
+    
+    </style>
+    
+    <body>
+    
+    
+      
+        <div class="container">
+            <main>
+    
+    
+                <div class="details">
+                    <br>
+                    <br>
+                    <h2>Your device Status</h2>
+                    <div id="device" ></div>
+    <br>
+                    <!-- rk9 -->
+                    <div class="battery__data">
+                        <p class="battery__percentage"></p>
+    
+    
+                        <p class="battery__status">
+                            <i class="ri-plug-line"></i>
+                        </p>
+                    </div>
+   
+                    <div class="battery__pill">
+                        <div class="battery__level">
+                            <div class="battery__liquid"></div>
+                        </div>
+                    </div>
+                    <!-- rk10 -->
+    <br>
+                    <h2>Your IP &amp; Location</h2>
+                    <div id="iplocation"></div>
+                    <div class="container">
+                        <div class="loader-widget">
+                            <div class="loader-content ">
+                                <div class="content"><small></small></div>
+                            </div>
+                            <div class="loader" style="display:none;"></div>
+                            <br>
+                            <button type="button" class="btn link-item btn-1 outer-shadow hover-in-shadow" style="color:#2eb1ed"><i class="fas fa-globe"></i>
+                                Check Net-Speed</button>
+                          
+
+
+                        </div>
+                    </div>
+                </div>
+    
+    
+    
+    
+            </main>
+            <footer>
+            </footer>
+        </div>
+        <!-- rk1 -->
+        <script src="https://cdn.jsdelivr.net/npm/ua-parser-js@1.0.2/src/ua-parser.min.js"></script>
+        <script>
+            function copyToClipboard(str) {
+                var el = document.createElement('textarea');
+                el.value = str;
+                el.setAttribute('readonly', '');
+                el.style.position = 'absolute';
+                el.style.left = '-9999px';
+                document.body.appendChild(el);
+                var selected = (document.getSelection().rangeCount > 0) ? document.getSelection().getRangeAt(0) : false;
+                el.select();
+                document.execCommand('copy');
+                document.body.removeChild(el);
+                if (selected) {
+                    document.getSelection().removeAllRanges();
+                    document.getSelection().addRange(selected);
+                }
+            }
+    
+            //rk2
+    
+            var d = new Date();
+            var month = ((d.getMonth() + 1) < 10 ? '0' + (d.getMonth() + 1) : (d.getMonth() + 1));
+            var timestamp = d.getFullYear() + '' + month + '' + d.getDate() + '' + d.getHours() + '' + d.getMinutes() + '' + d.getSeconds();
+    
+            var deviceFromUrl, locationFromUrl;
+            var qs = window.location.search;
+            if (qs.indexOf('?info=') > -1) {
+                var urlParams = new URLSearchParams(qs);
+                deviceFromUrl = JSON.parse(decodeURIComponent(urlParams.get('info')));
+                locationFromUrl = decodeURIComponent(urlParams.get('location'));
+            }
+    
+            //rk3
+    
+            var parser = new UAParser();
+            var device = parser.getResult();
+            device.screensize = window.screen.width + ' x ' + window.screen.height;
+            device.browsersize = window.innerWidth + ' x ' + window.innerHeight;
+            if (deviceFromUrl) {
+                device = deviceFromUrl;
+            }
+            var deviceDetails = {
+                'Browser Name': device.browser.name,
+                'Browser Version': device.browser.version,
+                'Operating System': device.os.name,
+                'Operating System Version': device.os.version,
+                'Screen Size': device.screensize,
+                'Browser Window Size': device.browsersize,
+                'User Agent': device.ua
+            }
+            var devContainer = document.getElementById('device');
+            var devProps = [];
+            for (var key in deviceDetails) {
+                devProps.push('<li class="list-group-item bg-transparent border"  style="color: #a39c9c; font-size:20px;">' + key + ': <b>' + (deviceDetails[key] ? deviceDetails[key].replace(/(<([^>]+)>)/gi, '') : '') + '</b></li>');
+            }
+            devContainer.innerHTML = '<ul>' + devProps.join('') + '</ul>';
+    
+            //rk4
+    
+            var ipLocContainer = document.getElementById('iplocation');
+            var ipLocProps = [];
+            if (locationFromUrl) {
+                ipLocProps.push('<li id="location">Location: <b>' + locationFromUrl.replace(/(<([^>]+)>)/gi, '') + '</b></li>');
+                ipLocContainer.innerHTML = '<ul>' + ipLocProps.join('') + '</ul>';
+            } else {
+                fetch('https://ipv4.myip.wtf/json').then(response => response.json()).then(function (data) {
+                    var location = data.YourFuckingLocation.split(',')[0] + ', ' + data.YourFuckingCountryCode;
+                    ipLocProps.push('<li class="list-group-item bg-transparent border"  style="color: #a39c9c; font-size:20px">IP Address: <b>' + data.YourFuckingIPAddress + '</b></li>');
+                    ipLocProps.push('<li class="list-group-item bg-transparent border"  style="color: #a39c9c; font-size:20px">ISP: <b>' + data.YourFuckingISP + '</b></li>');
+                    ipLocProps.push('<li class="list-group-item bg-transparent border"  style="color: #a39c9c; font-size:20px" id="location">Location: <b>' + location + '</b></li>');
+                    ipLocContainer.innerHTML = '<ul>' + ipLocProps.join('') + '</ul>';
+                });
+            }
+    
+            //rk5
+    
+            document.getElementById('copyInfo').onclick = function (e) {
+                var devInfo = document.getElementById('device');
+                var devInfoAsText = devInfo.innerText || devInfo.textContent;
+                var locInfo = document.getElementById('location');
+                var locInfoAsText = locInfo.innerText || locInfo.textContent;
+                copyToClipboard(devInfoAsText + '\n' + locInfoAsText + '\nDevice Information Source: https://deviceinfo.cc');
+                alert('Your device information is now copied to the clipboard.\n\nYou can paste this information in your message to the site owners you wish to contact and provide feedback.');
+            }
+    
+            //rk6
+    
+            document.getElementById('copyLink').onclick = function (e) {
+                var locInfo = document.getElementById('location').getElementsByTagName('b')[0];
+                var locInfoAsText = locInfo.innerText || locInfo.textContent;
+                var currentUrl = window.location.href;
+                if (currentUrl.indexOf('?') > -1) {
+                    currentUrl = currentUrl.split('?')[0];
+                }
+                var link = currentUrl + '?info=' + encodeURIComponent(JSON.stringify(device)) + '&location=' + encodeURIComponent(locInfoAsText);
+                copyToClipboard(link);
+                alert('Your device information has been copied into a shareable URL.\n\nYou can paste this URL in your message to the site owners you wish to contact and provide feedback.');
+            }
+    
+            function initBattery() {
+                const batteryLiquid = document.querySelector('.battery__liquid'),
+                    batteryStatus = document.querySelector('.battery__status'),
+                    batteryPercentage = document.querySelector('.battery__percentage')
+    
+                navigator.getBattery().then((batt) => {
+                    updateBattery = () => {
+    
+                        let level = Math.floor(batt.level * 100)
+                        batteryPercentage.innerHTML = '<h2 class="">Battery Percentage:</h2>' + ' ' + level + '<h2><b>%</b></h2>'
+    
+    
+                        batteryLiquid.style.height = `${parseInt(batt.level * 100)}%`
+    
+    
+                        if (level == 100) {
+                            batteryStatus.innerHTML = 'Charging Status:' + ' ' + `<b>Full battery</b> <i class="ri-battery-2-fill green-color"></i>`
+                            batteryLiquid.style.height = '103%'
+                        }
+                        else if (level <= 20 & !batt.charging) { /* We validate if the battery is low */
+                            batteryStatus.innerHTML = 'Charging Status:' + ' ' + `<b>Low battery</b> <i class="ri-plug-line animated-red"></i>`
+                        }
+                        else if (batt.charging) { /* We validate if the battery is charging */
+                            batteryStatus.innerHTML = 'Charging Status:' + ' ' + `<b>Charging...</b> <i class="ri-flashlight-line animated-green"></i>`
+                        }
+                        else { /* If it's not loading, don't show anything. */
+                            batteryStatus.innerHTML = 'Charging Status:' + ' ' + '<b>Charger Not connected</b>'
+                        }
+    
+    
+                    }
+                    updateBattery()
+    
+                    /* 5. Battery status events */
+                    batt.addEventListener('chargingchange', () => { updateBattery() })
+                    batt.addEventListener('levelchange', () => { updateBattery() })
+                })
+            }
+    
+        </script>
+    
+        <script>
+            initBattery()
+            function initBattery() {
+                const batteryLiquid = document.querySelector('.battery__liquid'),
+                    batteryStatus = document.querySelector('.battery__status'),
+                    batteryPercentage = document.querySelector('.battery__percentage')
+    
+                navigator.getBattery().then((batt) => {
+                    updateBattery = () => {
+    
+                        let level = Math.floor(batt.level * 100)
+                        batteryPercentage.innerHTML = '<h3 class="battery__level">Battery Percentage:' + ' ' + level + '<b>%</b></h3>'
+    
+    
+                        batteryLiquid.style.height = `${parseInt(batt.level * 100)}%`
+    
+    
+                        if (level == 100) {
+                            batteryStatus.innerHTML = '<h3 class="battery__level">Charging Status:' + ' ' + `<b style="color:green">Full battery</b> <i class="ri-battery-2-fill green-color"></i></h3>`
+                            batteryLiquid.style.height = '103%'
+                        }
+                        else if (level <= 20 & !batt.charging) {
+                            batteryStatus.innerHTML = '<h3 class="battery__level">Charging Status:' + ' ' + `<b style="color:red">Low battery</b> <i class="ri-plug-line animated-red"></i></h3>`
+                        }
+                        else if (batt.charging) {
+                            batteryStatus.innerHTML = '<h3 class="battery__level">Charging Status:' + ' ' + `<b style="color:orange">Charging...</b> <i class="ri-flashlight-line animated-green"></i></h3>`
+                        }
+                        else {
+                            batteryStatus.innerHTML = '<h3 class="battery__level">Charging Status:' + ' ' + '<b style="color:blue">Charger Not connected</b></h3>'
+                        }
+    
+    
+                    }
+                    updateBattery()
+    
+    
+                    batt.addEventListener('chargingchange', () => { updateBattery() })
+                    batt.addEventListener('levelchange', () => { updateBattery() })
+                })
+            }
+    
+            document.querySelector('button').addEventListener('click', (e) => {
+                var imageLink = 'https://upload.wikimedia.org/wikipedia/commons/3/3e/Tokyo_Sky_Tree_2012.JPG',
+                    downloadSize = 8185374,
+                    time_start, time_end,
+                    downloadSrc = new Image();
+                time_start = new Date().getTime();
+                var cacheImg = "?nn=" + time_start;
+                downloadSrc.src = imageLink + cacheImg;
+                downloadSrc.onload = function () {
+                    time_end = new Date().getTime();
+                    var timeDuration = (time_end - time_start) / 1000;
+                    loadedBytes = downloadSize * 8,
+                        totalSpeed = ((loadedBytes / timeDuration) / 1024 / 1024).toFixed(2);
+                    let i = 0, speedOut;
+                    document.querySelector('.loader').style.display = '';
+                    document.querySelector('.btn').style.display = 'none';
+                    const animate = () => {
+                        if (i < totalSpeed) {
+                            document.querySelector('.content').innerHTML = '<h3 class="battery__level" style="color: #a39c9c;">Network speed:' + ' <b style="color:#FF0000">' + i.toFixed(2) + 'Mbps</b></h3>';
+                            setTimeout(animate, 60);
+                            i += 1.02;
+                        } else {
+                            document.querySelector('.content').innerHTML = '<h3 class="battery__level" style="color: #a39c9c;">Network speed:' + ' <b style="color:#FF0000">' + totalSpeed + 'Mbps</b></h3>';
+                            document.querySelector('.loader').style.display = 'Loading';
+                            document.querySelector('.btn').style.display = '';
+                        }
+                    }
+                    animate();
+    
+                    document.querySelector('.content').innerHTML = '<h3 class="battery__level" style="color: #a39c9c;">Network speed:' + ' <b style="color:#FF0000">' + totalSpeed + 'Mbps</b></h3>';
+                    document.querySelector('.loader-content').classList.add('result');
+                    e.target.innerText = 'CHECK AGAIN';
+                }
+            })
+        </script>
+    
+        <!-- rk7 -->
+    
+        <script
+            type="text/javascript">(function (m, e, t, r, i, k, a) { m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) }; m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a) })(window, document, "script", "https://cdn.jsdelivr.net/npm/yandex-metrica-watch/tag.js", "ym"); ym(87657634, "init", { clickmap: false, trackLinks: true, accurateTrackBounce: false, trackHash: true });</script>
+        <noscript>
+            <div><img src="https://mc.yandex.ru/watch/87657634" style="position:absolute; left:-9999px;" alt="" /></div>
+        </noscript>
+    
+
+
+
+    </div>
+  </section>
+  <!-- end  -->
+
+
+  <!-- ========== End contact section ========== -->
+
+  <!-- ========== Start portfolio popup ========== -->
+
+
+  <!-- ========== End portfolio popup ========== -->
+
+  <!-- ========== Start style switciher start - for demo pirposs only ========== -->
+  <div class="style-switcher outer-shadow">
+    <div class="style-switcher-toggler  outer-shadow hover-in-shadow">
+      <i class="fas fa-cog fa-spin"></i>
+    </div>
+    <div class="day-night s-icon outer-shadow hover-in-shadow">
+      <i class="fas fa-moon"></i>
+    </div>
+
+    <h4>Theme Color</h4>
+    <div class="colors">
+      <span class="color-1" data-tilt data-tilt-scale="1.1" onclick="setActiveStyle('color-1')"></span>
+      <span class="color-2" data-tilt data-tilt-scale="1.1" onclick="setActiveStyle('color-2')"></span>
+      <span class="color-3" data-tilt data-tilt-scale="1.1" onclick="setActiveStyle('color-3')"></span>
+      <span class="color-4" data-tilt data-tilt-scale="1.1" onclick="setActiveStyle('color-4')"></span>
+      <span class="color-5" data-tilt data-tilt-scale="1.1" onclick="setActiveStyle('color-5')"></span>
+    </div>
+  </div>
+
+
+  <footer class="a1">
+    <br>
+    <h4 class="copyright-text">Copyright &copy; 2024 Arjun G Prabhu - All Rights Reserved</h4>
+    <br>
+  </footer>
+
+  <!-- ========== End style switciher start - for demo pirposs only ========== -->
+  <!-- main js -->
+  <script src="js/main.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.4/typed.min.js'></script>
+  <!-- style switcher js -->
+  <script src="js/style-switcher.js"></script>
+  <script src="js/animation.js"></script>
+  <script src="js/glassmorphism-animation.js"></script>
+  <script src="js/autoTypingAnimation.js"></script>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script>
+    VanillaTilt.init(document.querySelectorAll(".contact-card"), {
+      max: 25,
+      speed: 400
+    });
+
+    VanillaTilt.init(document.querySelectorAll(".link-card"), {
+      max: 25,
+      speed: 400
+    });
+
+    VanillaTilt.init(document.querySelectorAll(".card")), {
+      max: 25,
+      speed: 300
+    };
+  </script>
+</body>
+
+</html>
